@@ -1,0 +1,134 @@
+/* ============================================
+   RESPONSIVE.CSS - Media queries
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: clamp(3rem, 10vw, 7rem);
+    }
+
+    .wishes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: var(--space-sm);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    :root {
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+    }
+
+    .hero {
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 5rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .cake {
+        transform: scale(0.8);
+    }
+
+    .section-title {
+        font-size: clamp(2rem, 7vw, 3rem);
+    }
+
+    .wishes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .special-message {
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .quote-mark {
+        font-size: 5rem;
+        left: var(--space-xs);
+    }
+
+    .quote-text {
+        font-size: 1.3rem;
+    }
+
+    .floating-actions {
+        bottom: var(--space-sm);
+        right: var(--space-sm);
+    }
+
+    .fab {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .wish-card {
+        padding: var(--space-sm);
+    }
+
+    .wish-icon {
+        font-size: 2.5rem;
+    }
+
+    .wish-title {
+        font-size: 1.5rem;
+    }
+
+    .cake {
+        transform: scale(0.7);
+    }
+}
+
+/* Landscape */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: var(--space-md);
+    }
+
+    .cake {
+        transform: scale(0.6);
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark/Light theme support */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%);
+    }
+}

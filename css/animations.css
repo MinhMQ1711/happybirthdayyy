@@ -1,0 +1,228 @@
+/* ============================================
+   ANIMATIONS.CSS - Keyframes & motion
+   ============================================ */
+
+/* Cake Styles */
+.cake-wrapper {
+    perspective: 1000px;
+    margin-top: var(--space-md);
+}
+
+.cake {
+    position: relative;
+    width: 280px;
+    height: 300px;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    animation: cakeFloat 4s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+    0%, 100% { transform: translateY(0) rotateY(0deg); }
+    50% { transform: translateY(-15px) rotateY(5deg); }
+}
+
+.plate {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 20px;
+    background: linear-gradient(180deg, #e8e8e8, #b8b8b8);
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.layer-bottom {
+    bottom: 20px;
+    width: 260px;
+    height: 80px;
+    background: linear-gradient(180deg, #ff9a9e 0%, #ff6b9d 100%);
+}
+
+.layer-bottom::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(180deg, #fff 0%, #ffe0e9 100%);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.layer-middle {
+    bottom: 100px;
+    width: 200px;
+    height: 70px;
+    background: linear-gradient(180deg, #a8edea 0%, #48dbfb 100%);
+}
+
+.layer-middle::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(180deg, #fff 0%, #d4f5f2 100%);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.layer-top {
+    bottom: 170px;
+    width: 140px;
+    height: 60px;
+    background: linear-gradient(180deg, #feca57 0%, #ff9f43 100%);
+}
+
+.layer-top::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(180deg, #fff 0%, #fff4d4 100%);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* Candles */
+.candles {
+    position: absolute;
+    bottom: 230px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+}
+
+.candle {
+    position: relative;
+    width: 8px;
+    height: 30px;
+    background: linear-gradient(180deg, #fff 0%, #ff6b9d 100%);
+    border-radius: 2px;
+}
+
+.flame {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 18px;
+    background: radial-gradient(circle at 50% 70%, #ffeb3b 0%, #ff9800 50%, #ff5722 100%);
+    border-radius: 50% 50% 20% 20%;
+    animation: flicker 0.3s ease-in-out infinite alternate;
+    box-shadow: 0 0 20px #ff9800, 0 0 40px #ff5722;
+}
+
+.flame::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1) rotate(-2deg); opacity: 1; }
+    100% { transform: translateX(-50%) scale(1.1) rotate(2deg); opacity: 0.9; }
+}
+
+/* Confetti Piece */
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -20px;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Firework */
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.firework-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    animation: fireworkExplode 1.5s ease-out forwards;
+}
+
+@keyframes fireworkExplode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Sparkle */
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+/* Pulse */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Shimmer */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Typewriter cursor */
+.typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--color-primary);
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}

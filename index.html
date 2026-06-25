@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎂 Happy Birthday Quang Duy 🎉</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;800&family=Pacifico&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/scroll-letter.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>" />
+</head>
+<body>
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+    <div id="confetti-layer" aria-hidden="true"></div>
+
+    <!-- ============================================ -->
+    <!-- 🎀 MÀN HÌNH CUỘN THƯ (INTRO) -->
+    <!-- ============================================ -->
+    <div id="scroll-intro" class="scroll-intro">
+        <div class="scroll-intro-bg"></div>
+
+        <!-- Floating sparkles -->
+        <div class="intro-sparkles" aria-hidden="true">
+            <span style="--i:1">✨</span>
+            <span style="--i:2">⭐</span>
+            <span style="--i:3">✨</span>
+            <span style="--i:4">💫</span>
+            <span style="--i:5">✨</span>
+            <span style="--i:6">⭐</span>
+            <span style="--i:7">✨</span>
+            <span style="--i:8">💫</span>
+        </div>
+
+        <!-- The scroll container -->
+        <div class="scroll-container">
+            <!-- Top roller -->
+            <div class="scroll-roller scroll-roller-top"></div>
+
+            <!-- Paper body -->
+            <div class="scroll-paper">
+                <!-- Wax seal -->
+                <div class="wax-seal">
+                    <div class="seal-inner">QD</div>
+                </div>
+
+                <!-- Ribbon -->
+                <div class="ribbon">
+                    <div class="ribbon-bow"></div>
+                </div>
+
+                <!-- Letter content (hidden initially) -->
+                <div class="letter-content">
+                    <div class="letter-header">
+                        <span class="letter-date">Ngày đặc biệt 🌸</span>
+                        <h2 class="letter-title">Gửi Quang Duy,</h2>
+                    </div>
+
+                    <div class="letter-body">
+                        <p class="letter-paragraph">
+                            Hôm nay là một ngày rất đặc biệt — ngày mà thế giới này
+                            được đón nhận thêm một người tuyệt vời: <strong>bạn</strong>. 💖
+                        </p>
+                        <p class="letter-paragraph">
+                            Mình muốn gửi đến bạn những lời chúc chân thành nhất,
+                            từ tận đáy lòng, nhân dịp sinh nhật này.
+                        </p>
+                        <p class="letter-paragraph signature-line">
+                            Hãy cuộn xuống để đọc tiếp nhé...
+                        </p>
+                    </div>
+
+                    <div class="letter-footer">
+                        <button id="open-scroll-btn" class="btn-open-scroll">
+                            <span class="btn-open-icon">💝</span>
+                            <span class="btn-open-text">Mở Thư Yêu Thương</span>
+                            <span class="btn-open-arrow">↓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom roller -->
+            <div class="scroll-roller scroll-roller-bottom"></div>
+        </div>
+
+        <!-- Hint text -->
+        <p class="scroll-hint">
+            <span class="hint-icon">👆</span>
+            Nhấn vào cuộn thư để bắt đầu
+        </p>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 🎂 TRANG CHÍNH (ẩn ban đầu) -->
+    <!-- ============================================ -->
+    <main id="app" class="app hidden">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-subtitle fade-in-up">Happy Birthday To You</p>
+                <h1 class="hero-title glitch" data-text="Quang Duy">
+                    <span class="title-line">Quang</span>
+                    <span class="title-line accent">Duy</span>
+                </h1>
+                <p class="hero-tagline fade-in-up delay-1">✨ Một ngày đặc biệt dành cho một người đặc biệt ✨</p>
+
+                <div class="cta-group fade-in-up delay-2">
+                    <button id="toggle-music-btn" class="btn btn-primary" aria-label="Bật/Tắt nhạc">
+                        <span class="btn-icon">🔊</span>
+                        <span class="btn-text">Tắt Nhạc</span>
+                    </button>
+                    <button id="surprise-btn" class="btn btn-secondary" aria-label="Bất ngờ">
+                        <span class="btn-icon">🎁</span>
+                        <span class="btn-text">Bắn Pháo Hoa</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="cake-wrapper fade-in-up delay-3">
+                <div id="cake" class="cake">
+                    <div class="plate"></div>
+                    <div class="layer layer-bottom"></div>
+                    <div class="layer layer-middle"></div>
+                    <div class="layer layer-top"></div>
+                    <div class="candles">
+                        <div class="candle"><div class="flame"></div></div>
+                        <div class="candle"><div class="flame"></div></div>
+                        <div class="candle"><div class="flame"></div></div>
+                        <div class="candle"><div class="flame"></div></div>
+                        <div class="candle"><div class="flame"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wishes Section -->
+        <section class="wishes-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-decor">💌</span>
+                    Lời Chúc Gửi Đến Bạn
+                    <span class="title-decor">💌</span>
+                </h2>
+
+                <div class="wishes-grid">
+                    <article class="wish-card glass">
+                        <div class="wish-icon">🌟</div>
+                        <h3 class="wish-title">Thành Công Rực Rỡ</h3>
+                        <p class="wish-text" data-typewriter>Chúc Quang Duy luôn vững bước trên con đường mình đã chọn. Mọi nỗ lực sẽ đơm hoa kết trái, mọi ước mơ sẽ trở thành hiện thực.</p>
+                    </article>
+
+                    <article class="wish-card glass">
+                        <div class="wish-icon">💖</div>
+                        <h3 class="wish-title">Hạnh Phúc Trọn Vẹn</h3>
+                        <p class="wish-text" data-typewriter>Mong bạn luôn tràn đầy niềm vui, sức khỏe và những phút giây bình yên bên gia đình, bạn bè và những người thương yêu.</p>
+                    </article>
+
+                    <article class="wish-card glass">
+                        <div class="wish-icon">🚀</div>
+                        <h3 class="wish-title">Tuổi Mới Rực Rỡ</h3>
+                        <p class="wish-text" data-typewriter>Tuổi mới mang đến cho bạn thật nhiều trải nghiệm mới, những cuộc phiêu lưu đáng nhớ và một phiên bản tốt hơn của chính mình.</p>
+                    </article>
+
+                    <article class="wish-card glass">
+                        <div class="wish-icon">🎯</div>
+                        <h3 class="wish-title">Vạn Sự Như Ý</h3>
+                        <p class="wish-text" data-typewriter>Chúc Quang Duy luôn giữ được nụ cười rạng rỡ, trái tim ấm áp và tinh thần lạc quan để vượt qua mọi thử thách phía trước.</p>
+                    </article>
+                </div>
+
+                <div class="special-message glass">
+                    <div class="quote-mark">"</div>
+                    <p class="quote-text" id="main-wish">
+                        Quang Duy ơi, cảm ơn bạn vì đã xuất hiện trong cuộc đời này.
+                        Chúc mừng sinh nhật bạn — người bạn tuyệt vời! 🎉
+                    </p>
+                    <div class="signature">— With all my love ❤️</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="floating-actions">
+            <button id="fireworks-btn" class="fab" aria-label="Bắn pháo hoa">🎆</button>
+            <button id="theme-btn" class="fab" aria-label="Đổi theme">🌙</button>
+        </div>
+
+        <footer class="footer">
+            <p>Made with <span class="heart">❤️</span> for <strong>Quang Duy</strong></p>
+            <p class="footer-small">🎂 Happy Birthday 🎂</p>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/particles.js" defer></script>
+    <script src="js/confetti.js" defer></script>
+    <script src="js/music.js" defer></script>
+    <script src="js/typewriter.js" defer></script>
+    <script src="js/cake3d.js" defer></script>
+    <script src="js/scroll-letter.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>
